@@ -9,7 +9,7 @@ interface StoryService {
     fun findAll(): List<Story>
     fun saveOrUpdateStudent(story: Story): Story
     fun findAllByOrderByEpicNumber(): List<Story>?
-    fun findByStatus(status: String): Story
+    fun findByStatus(status: String): List<Story>
     fun deleteStory(story: Story)
     fun findByEpicNumber(epicNumber: Long): Story
 

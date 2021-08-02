@@ -20,7 +20,7 @@ class StoryServiceImpl( val storyRepository: StoryRepository) : StoryService {
         return storyRepository.findAllByOrderByEpicNumber()
     }
 
-    override fun findByStatus(status: String): Story {
+    override fun findByStatus(status: String): List<Story> {
         return storyRepository.findByStatus(status)
     }
 

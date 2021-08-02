@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 interface StoryRepository : MongoRepository<Story, String> {
 
     fun findAllByOrderByEpicNumber(): List<Story>?
-    fun findByStatus(status: String?): Story
+    fun findByStatus(status: String?): List<Story>
     fun findByEpicNumber(epicNumber: Long): Story
 
 

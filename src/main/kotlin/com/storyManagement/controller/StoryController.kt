@@ -27,7 +27,7 @@ class StoryController(val storyService: StoryService) {
     }
 
     @GetMapping(value = ["/byStatus/{status}"])
-    fun getStoryByStatus(@PathVariable("status") status: String): Story {
+    fun getStoryByStatus(@PathVariable("status") status: String): List<Story> {
         return storyService.findByStatus(status)
     }
 
