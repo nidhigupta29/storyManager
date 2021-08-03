@@ -16,6 +16,26 @@ class Story {
     var label : String = null.toString()
     var status : String = null.toString()
 
+    constructor(
+        id: String,
+        heading: String,
+        epicNumber: Long,
+        description: String,
+        reporter: String,
+        assignee: String,
+        label: String,
+        status: String
+    ) {
+        this.id = id
+        this.heading = heading
+        this.epicNumber = epicNumber
+        this.description = description
+        this.reporter = reporter
+        this.assignee = assignee
+        this.label = label
+        this.status = status
+    }
+
     override fun toString(): String {
         return "Story(id='$id', heading='$heading', epicNumber=$epicNumber, description='$description', reporter='$reporter', assignee='$assignee', label='$label', status='$status')"
     }
