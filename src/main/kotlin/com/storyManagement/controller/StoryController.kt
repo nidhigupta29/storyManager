@@ -37,4 +37,13 @@ class StoryController(val storyService: StoryService) {
         return ResponseEntity<Any?>("Story card deleted successfully", HttpStatus.OK)
     }
 
+    @PutMapping(value = ["/{status}"])
+    fun updateStatus(@RequestBody story: Story, @PathVariable("status") status: String) : ResponseEntity<*> {
+        story.status = status
+        storyService.saveOrUpdateStudent(story)
+        return ResponseEntity<Any?>("Story card status updated successfully", HttpStatus.OK)
+    }
+
+
+
 }
