@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 interface StoryService {
 
     fun findAll(): List<Story>
-    fun saveOrUpdateStudent(story: Story): Story
+    fun saveStory(story: Story): Story
     fun findAllByOrderByEpicNumber(): List<Story>?
     fun findByStatus(status: String): List<Story>
     fun deleteStory(story: Story)

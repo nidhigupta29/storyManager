@@ -15,9 +15,9 @@ class StoryController(val storyService: StoryService) {
         return storyService.findAll()
     }
 
-    @PostMapping(value = ["/save"])
-    fun saveOrUpdateStory(@RequestBody story: Story): ResponseEntity<*> {
-        storyService.saveOrUpdateStudent(story)
+    @PostMapping(value = ["/"])
+    fun saveStory(@RequestBody story: Story): ResponseEntity<*> {
+        storyService.saveStory(story)
         return ResponseEntity<Any?>("Story card added successfully", HttpStatus.OK)
     }
 
@@ -40,7 +40,7 @@ class StoryController(val storyService: StoryService) {
     @PutMapping(value = ["/{status}"])
     fun updateStatus(@RequestBody story: Story, @PathVariable("status") status: String) : ResponseEntity<*> {
         story.status = status
-        storyService.saveOrUpdateStudent(story)
+        storyService.saveStory(story)
         return ResponseEntity<Any?>("Story card status updated successfully", HttpStatus.OK)
     }
 

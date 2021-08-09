@@ -12,7 +12,7 @@ class StoryServiceImpl( val storyRepository: StoryRepository) : StoryService {
         return storyRepository.findAll()
     }
 
-    override fun saveOrUpdateStudent(story: Story): Story {
+    override fun saveStory(story: Story): Story {
         return storyRepository.save(story)
     }
 
