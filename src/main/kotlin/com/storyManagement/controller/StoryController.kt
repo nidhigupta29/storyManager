@@ -26,12 +26,12 @@ class StoryController(val storyService: StoryService) {
         return storyService.findAllByOrderByEpicNumber()
     }
 
-    @GetMapping(value = ["/byStatus/{status}"])
-    fun getStoryByStatus(@PathVariable("status") status: String): List<Story> {
+    @GetMapping(value = ["/status"])
+    fun getStoryByStatus(@RequestParam(name = "status") status: String): List<Story> {
         return storyService.findByStatus(status)
     }
 
-    @DeleteMapping(value = ["/delete/{epicNumber}"])
+    @DeleteMapping(value = ["/{epicNumber}"])
     fun deleteStory(@PathVariable epicNumber : Long) : ResponseEntity<*> {
         storyService.deleteStory(storyService.findByEpicNumber(epicNumber))
         return ResponseEntity<Any?>("Story card deleted successfully", HttpStatus.OK)
