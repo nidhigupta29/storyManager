@@ -5,6 +5,8 @@ import com.storyManagement.service.StoryService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.security.Principal
+
 
 @RestController
 @RequestMapping("/story")
@@ -14,6 +16,12 @@ class StoryController(val storyService: StoryService) {
     fun getAllStory() : List<Story> {
         return storyService.findAll()
     }
+
+    @GetMapping("/user")
+    fun user(principal: Principal?): Principal? {
+        return principal
+    }
+
 
     @PostMapping(value = ["/"])
     fun saveStory(@RequestBody story: Story): ResponseEntity<*> {
