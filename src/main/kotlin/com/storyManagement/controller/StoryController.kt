@@ -1,5 +1,6 @@
 package com.storyManagement.controller
 
+import com.storyManagement.error.StoryNotFoundException
 import com.storyManagement.model.Story
 import com.storyManagement.service.StoryService
 import org.springframework.http.HttpStatus
@@ -36,6 +37,8 @@ class StoryController(val storyService: StoryService) {
 
     @GetMapping(value = ["/status"])
     fun getStoryByStatus(@RequestParam(name = "status") status: String): List<Story> {
+    if(storyService.findByStatus(status).isEmpty())
+        throw StoryNotFoundException("Story with status $status not found")
         return storyService.findByStatus(status)
     }
 
